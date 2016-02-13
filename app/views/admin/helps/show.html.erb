@@ -1,0 +1,31 @@
+<%= @post.created_at %> 
+
+
+
+<p>
+    <%= @post.content %>
+</p>
+
+<h2>
+    相關網址
+</h2>
+<div>
+    
+    <%= render_table(@post.urls,
+                    [             
+                        ["網址", lambda { |p| show_url(p) }],
+                    ]
+
+                    ) %>
+
+</div>
+<h2><%= link_to_remote('留下意見或聯絡資訊',:url => new_help_comment_path(@post), :method => :get) %> </h2>
+
+<h2>
+    相關意見或聯絡資訊
+</h2>
+<div>
+    <% for post_comment in @post_comments %>
+       <p> <%= post_comment.content %></p>
+    <% end %>
+</div>

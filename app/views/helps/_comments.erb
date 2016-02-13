@@ -1,0 +1,6 @@
+[ update at : <%= comment.created_at %>]<br>
+
+<%= content_tag(:div,comment.content_html) %>
+<%= show_comment_ip(comment) %> <%= admin_edit_comment_bar(comment) %>
+
+<hr>

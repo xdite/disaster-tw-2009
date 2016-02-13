@@ -1,0 +1,56 @@
+<div class="block" id="block-forms">
+  <div class="secondary-navigation">
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">
+      刊登資訊 / 發出求救 （十分緊急災情請直接打 119 ）
+    </h2>
+    <div class="inner">
+	  <%= error_messages_for :post %>	
+      <% form_for @post , :url => admin_help_path(@post), :html => { :multipart => true , :class => "form" } do |f| -%>
+        <div class="group">
+          <label class="label">標題</label>
+          <%= f.text_field :subject %>
+          
+        </div>
+		<div class="group">
+          <label class="label">選擇受災地區</label>
+          <%= f.select :county_id , County.find(:all).collect {|p| [ p.name, p.id ] } %>
+
+        </div>
+
+		<div class="group">
+          <label class="label">選擇文章類型</label>
+           <%= f.select :help_type_id , HelpType.find(:all).collect {|p| [ p.name, p.id ] } %>
+         
+        </div>
+
+		<div class="group">
+          <label class="label">你的消息來源</label>
+           <%= f.select :source_type_id , SourceType.find(:all).collect {|p| [ p.name, p.id ] } %>
+        </div>
+
+		<div class="group">
+          <label class="label">輸入災情或需要救助內容</label>
+          <%= f.text_area :content %>
+       
+        </div>
+		<div id="urls"> 
+	        <%= render :partial => 'url', :collection => @post.urls %> 
+	    </div> 
+
+	    <p> 
+	    <%= add_url_link "新增相關連結" %> 
+	    </p>
+        <div class="group navform">
+          <input type="submit" class="button" value="Save &rarr;" /> or <a href="#header">Cancel</a>
+        </div>
+      <% end %>
+
+      <br class="clear" />
+
+    </div>
+  </div>
+</div>
+    

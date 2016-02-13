@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby 
+require 'rubygems'
+require 'simple-daemon'
+RAILS_ENV = ARGV[1] || 'development' 
+require File.dirname(__FILE__) + '/../config/environment.rb' 
+class UrlFetcherDaemon < SimpleDaemon::Base 
+  
+  SimpleDaemon::WORKING_DIRECTORY = "#{RAILS_ROOT}/log" 
+  def self.start 
+    loop do 
+    FetchingUrl.run 
+    end 
+    # There is a issue, too many query.
+  end 
+
+  def self.stop 
+    puts "Stopping URL Fetcher..." 
+  end 
+
+end 
+
+UrlFetcherDaemon.daemonize 

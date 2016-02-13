@@ -1,0 +1,27 @@
+<%= will_paginate @posts %>
+<div class="clear"></div>
+<%= render_table(@posts,
+                [   
+	          		["類型", lambda { |p| link_to(p.help_type.name, county_path(p.county,:help_type => p.help_type.id )) if p.help_type }],
+	                ["縣市", lambda { |p| link_to(p.county.name, county_path(p.county)) }],
+                    ["主旨", lambda { |p| link_to h(p.subject),help_path(p) }],
+                    ["內容", lambda { |p| content_tag(:div,p.content_html) + show_ip(p)}],
+  					["最新狀況", lambda { |p| 
+						if p.post_comments_count > 0
+							link_to_remote('Update',:url => new_help_comment_path(p), :method => :get)  + "<br>"+ render( :partial => "helps/comments", :collection => p.post_comments , :as => :comment )
+						else
+						  link_to_remote('Update',:url => new_help_comment_path(p), :method => :get) 
+						end  }],
+	                ["Action", lambda { |p|
+	                  link_to('Edit',edit_admin_help_path(p)) + ' | ' +
+	                  link_to('Delete',  admin_help_path(p), :title => "Delete this phone", :confirm => "Are you sure?", :method => :delete) + "|" +
+					  revert_it(p)	
+            }],
+			   ["被檢舉次數", lambda { |p| p.spams_count }],	
+               ["編號", lambda { |p| p.id }],
+
+                  ]
+                ) %>
+<div class="clear"></div>            
+<%= will_paginate @posts %>
+<div class="clear"></div>

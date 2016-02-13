@@ -1,0 +1,12 @@
+<div class="url"> 
+<% new_or_existing = url.new_record? ? 'new' : 'existing' %> 
+<% prefix = "post[#{new_or_existing}_url_attributes][]" %> 
+<% fields_for prefix, url do |url_form| -%> 
+<p> 
+相關連結 <%= url_form.text_field :link , :value => "http://" %> 
+<%= link_to_function "移除", "$(this).parent().remove()" %> 
+</p> 
+<% end -%> 
+</div>
+
+

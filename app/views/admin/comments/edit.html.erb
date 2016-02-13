@@ -1,0 +1,26 @@
+<div class="block" id="block-forms">
+  <div class="secondary-navigation">
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <div class="inner">
+	  <%= error_messages_for :comment %>	
+      <% form_for @comment , :url => admin_comment_path(@comment), :html => { :multipart => true , :class => "form" } do |f| -%>
+
+		<div class="group">
+          <label class="label">編輯留言內容</label>
+          <%= f.text_area :content %>
+       
+        </div>
+
+        <div class="group navform">
+          <input type="submit" class="button" value="Save &rarr;" /> or <a href="#header">Cancel</a>
+        </div>
+      <% end %>
+
+      <br class="clear" />
+
+    </div>
+  </div>
+</div>
+    

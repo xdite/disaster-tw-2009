@@ -1,0 +1,10 @@
+log/*.log
+tmp/**/*
+*.*~
+db/*.sqlite3
+public/product_attachments/
+config/deploy
+doc/*
+.svn/
+config/*.yml
+config/deploy.rb

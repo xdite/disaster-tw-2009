@@ -1,0 +1,13 @@
+<%= will_paginate @counties %>
+<div class="clear"></div>
+<%= render_table(@counties,
+                [             
+                ["Name", lambda { |p| link_to(p.name,county_path(p)) }],
+                ["Location", lambda { |p| p.location }],
+                ["災情數量", lambda { |p| p.posts_count }],
+                ["最新災情",lambda { |p| show_last_post(p) }],
+                ["最新更新",lambda { |p| show_last_post_time(p) }]
+            ]
+                ) %>
+<%= will_paginate @counties %>
+<div class="clear"></div>

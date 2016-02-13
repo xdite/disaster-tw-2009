@@ -1,0 +1,10 @@
+<div class="secondary-navigation">
+	<ul>
+		<li><%= link_to "文章管理" , admin_helps_path %></li>
+		<li><%= link_to "留言管理" , admin_comments_path %></li>
+		<li><%= link_to "IP阻擋" , ip_admin_misc_path(1) %></li>
+		<li><%= link_to "關鍵字阻擋" , keywords_admin_misc_path(2) %></li>
+		<li><%= link_to "Spam管理" , admin_helps_path(:admin_type => "is_spam") %></li>
+	</ul>
+  <div class="clear"></div>
+</div>

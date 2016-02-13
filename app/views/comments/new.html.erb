@@ -1,0 +1,12 @@
+    <%= error_messages_for :post_comment %>
+    
+    <% form_for :post_comment , :url => help_comments_path(@post) do |f| -%>
+    <div class="new-comment">
+        <div class="field">
+          <label>內容</label>
+          <%= f.text_area :content %>
+        </div>
+        <button type="submit" class="submit">submit</button>
+    </div>
+    <% end %>
+

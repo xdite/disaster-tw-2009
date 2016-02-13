@@ -1,0 +1,11 @@
+# -*- ruby -*-
+
+require 'rubygems'
+require 'hoe'
+
+Hoe.new('facebox-render', '0.9.5') do |p|
+   p.rubyforge_name = 'facebox-render' # if different than lowercase project name
+   p.developer('Wen-Tien Chang', 'ihower@handlino.com')
+end
+
+# vim: syntax=Ruby

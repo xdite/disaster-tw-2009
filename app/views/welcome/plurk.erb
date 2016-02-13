@@ -1,0 +1,8 @@
+<% @time = (Time.now - 8.days).beginning_of_day %>
+<% @time_end = (Time.now - 5.days).beginning_of_day %>
+
+<% while @time < @time_end %>
+<%= link_to("#{@time} - #{(@time+15.minutes)}", "http://www.plurk.com/m/?offset=#{@time.to_i}&last_offset=#{(@time+15.minutes).to_i}") %>
+<br>
+<% @time = @time + 15.minutes %> 
+<% end %>

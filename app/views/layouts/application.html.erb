@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="莫拉克,颱風,災情,莫拉克颱風,morakot,typhoon,災情支援">
+	<link title="Atom 0.3" type="application/rss+xml" href="http://feeds.feedburner.com/disastertw" rel="alternate" />
+
+	
+	<%= render_page_title %>
+	<%= stylesheet_link_tag 'web_app_theme', "themes/blue/style",'stickies', 'facebox' , 'application', :cache => true %>
+
+	
+</head>
+<%= render_body_tag %>
+  <div id="container">
+    <div id="header">
+      <h1><a href="/">莫拉克颱風災情支援網</a></h1>
+
+<form action=" http://disastertw.com/search" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="014628619256745879228:_pnrdptsois" />
+    <input type="hidden" name="cof" value="FORID:10" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    站內搜尋 <input type="text" name="q" size="31" />
+    <input type="submit" name="sa" value="搜尋" />
+  </div>
+</form>
+
+
+       <div class="clear"></div>
+      <div id="user-navigation">
+		 	<%= render_menu(salutation_menu) %>
+        <div class="clear"></div>
+      </div>      
+      <div id="main-navigation" >
+         <%= render_menu(navigation_menu) %>
+        <div class="clear"></div>
+      </div>
+    </div>    
+    <div id="wrapper">
+      <div class="flash">
+		  <%= render_stickies %>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p> 2009 Disastertw.com -- by <a href="http://www.plurk.com/xdite">xdite</a>, <a href="http://blog.xdite.net">xdite's blog</a></p>
+          </div>      
+        </div>
+      </div>
+      <div id="sidebar">
+		  
+      </div>
+      <div class="clear"></div>      
+    </div>    
+  </div>
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("elements", "1", {packages: "transliteration"});</script>
+<script type="text/javascript" src="http://www.google.com/coop/cse/t13n?form=cse-search-box&t13n_langs=zh-Hant"></script>
+
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&lang=zh-Hant"></script>
+	<%= javascript_include_tag :defaults,"facebox.js" , :cache => true %>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-10142680-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

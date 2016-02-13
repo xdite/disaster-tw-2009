@@ -1,0 +1,13 @@
+<div class="block" id="block-tables">
+  <div class="secondary-navigation">
+	<%= render :partial => "admin/navbar"%>
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">請求支援列表 <%= " - " + HelpType.find(params[:help_type].to_i).name unless params[:help_type].blank? %></h2>
+    <div class="inner">
+
+		<%= render :partial => 'index' %>
+    </div>
+  </div>
+</div>

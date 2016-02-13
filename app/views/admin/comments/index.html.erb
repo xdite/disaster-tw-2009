@@ -1,0 +1,28 @@
+<div class="block" id="block-tables">
+  <div class="secondary-navigation">
+	<%= render :partial => "admin/navbar"%>
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">
+    	留言列表</h2>
+    <div class="inner">
+		<%= will_paginate @comments %>
+		<div class="clear"></div>
+		<%= render_table(@comments,
+		                [   
+		                    ["內容", lambda { |p| content_tag(:div,p.content_html)+show_comment_ip(p) }],
+							["POST", lambda { |p| content_tag(:div,p.post.content_html) + show_ip(p.post)}],
+			                ["Action", lambda { |p|
+			                  link_to('Edit',edit_admin_comment_path(p)) + ' | ' +
+			                  link_to('Delete',  admin_comment_path(p), :title => "Delete this comment", :confirm => "Are you sure?", :method => :delete)
+			                  }],
+		                     [" comment 編號", lambda { |p| link_to(p.id, help_path(p.post)) }],
+		                     [" post 編號", lambda { |p| link_to(p.post.id, help_path(p.post)) }],
+		                  ]
+		                ) %>
+	   <%= will_paginate @comments %>
+	  <div class="clear"></div>
+    </div>
+  </div>
+</div>

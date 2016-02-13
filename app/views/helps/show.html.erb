@@ -1,0 +1,32 @@
+<div class="block" id="block-text">
+  <div class="secondary-navigation">
+
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title"><%= @post.created_at %> - [<%= @post.county.name %>] - <%= h(@post.subject)%> </h2>
+	
+    <div class="inner">
+		<%= content_tag(:div, @post.content_html)%>
+    <p> <%= show_ip(@post) %> </p>
+		<%= render_table(@post.urls,
+	                    [             
+	                        ["相關網址", lambda { |p| show_url(p) }],
+	                    ]
+
+	                    ) %>
+		<h3><%= link_to_remote('留下意見或聯絡資訊',:url => new_help_comment_path(@post), :method => :get) %></h3>
+		<h2>
+		    相關意見或聯絡資訊
+		</h2>
+		<div>
+		    <% for post_comment in @post_comments %>
+			   <p>[ update at : <%= post_comment.created_at %> ]</p>
+		       <p> <%= post_comment.content_html %></p>
+           <%= show_comment_ip(post_comment) %>
+           <hr>
+		    <% end %>
+		</div>
+    </div>
+  </div>
+</div>

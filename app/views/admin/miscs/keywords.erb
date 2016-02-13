@@ -1,0 +1,27 @@
+<div class="block" id="block-forms">
+  <div class="secondary-navigation">
+	<%= render :partial => "admin/navbar"%>
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">
+      關鍵字 阻擋列表
+    </h2>
+    <div class="inner">
+	  <%= error_messages_for :misc %>	
+      <% form_for @misc , :url => admin_misc_path(@misc), :html => {  :class => "form" } do |f| -%>
+
+		<div class="group">
+          <label class="label">輸入關鍵字，請以 , 分隔。請以瘋子的短網址為主,以免誤傷無辜</label>
+          <%= f.text_area :content %>
+        <div class="group navform">
+          <input type="submit" class="button" value="Save &rarr;" /> or <a href="#header">Cancel</a>
+        </div>
+      <% end %>
+
+      <br class="clear" />
+
+    </div>
+  </div>
+</div>
+    

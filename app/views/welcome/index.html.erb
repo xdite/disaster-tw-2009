@@ -1,0 +1,19 @@
+<h3 class="push">
+
+	<a onClick="javascript: void(window.open('http://www.plurk.com/?qualifier=shares&status=' .concat(encodeURIComponent(location.href)) .concat(' ') .concat('&#40;') .concat(encodeURIComponent(document.title)) .concat('&#41;').concat('&nbsp;&nbsp; 請幫忙更新全台災情與支援資料或轉噗')));" href="#">推到 Plurk!</a>
+ &nbsp; | （本站建議使用 IE8 或 Firefox 瀏覽） | &nbsp; 消防署已將本站提供給各縣市災害應變中心救災參考(<a href="http://disastertw.com/helps/2262">來源</a>)
+</h3>
+
+<div class="block" id="block-text">
+  <div class="secondary-navigation">
+
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">提供資訊前，請先 &nbsp;<%= link_to("站內搜尋", search_path ) %> &nbsp;有無重複&nbsp;|&nbsp;超級緊急之災情，請先撥打 119。</h2>
+
+    <div class="inner">
+		<%= render :partial => 'helps/index' %>
+    </div>
+  </div>
+</div>

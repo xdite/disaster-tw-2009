@@ -1,0 +1,51 @@
+<%= error_messages_for :user %>
+
+<h3>Current Avatar</h3>
+<p>
+    <%= buddy_icon(current_user) %>
+    <% unless current_user.buddy_icon %>
+    (current icon is from <a href='http://gravatar.com/'>gravatar.com</a>)
+    <% end %>
+</p>  
+<p><%= link_to "Upload your own avatar", user_icon_path(current_user) %></p>
+
+<div class="container">
+  <div class="bd">
+    <h1>Settings</h1>
+    <% form_for :user, :url => user_path(@user), :html => {:method => :put} do |f| -%>
+    <div class="setting-panel">
+        <div class="field">
+          <label>Login</label>
+          <%= f.text_field :login %>
+        </div>
+        
+        <div class="field">
+          <label>URL</label>
+          <%= f.text_field :site_url %>
+          <span class="hint">Have a homepage or a blog? Put the URL here</span>
+        </div>
+
+        <div class="field">
+          <label>Bio</label>
+          <%= f.text_area :description, :size => "20x10" %>
+        </div>
+
+        <div class="openid-list">
+          <label>OpenID</label>
+          <ul>
+          <% @user_openids.map do |o| %>
+              <li>
+                <%= link_to('[x]', user_openid_path(@user, o), :title => "Delete this OpenID", :class => "delete-openid", :confirm => "Are you sure?", :method => :delete) %>
+                <%= o.denormalized_url %>
+              </li>
+          <% end %>
+              <li>
+                <%= link_to("Add an OpenID", open_id_complete_on_user_path, :class => "add-openid") %>
+              </li>
+          </ul>
+        </div>
+        <button type="submit" class="submit">submit</button>
+    </div>
+    <% end -%>
+  </div>
+</div>

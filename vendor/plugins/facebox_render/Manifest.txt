@@ -1,0 +1,7 @@
+History.txt
+init.rb
+Manifest.txt
+Rakefile
+lib/facebox_render.rb
+lib/facebox_render_helper.rb
+README.txt

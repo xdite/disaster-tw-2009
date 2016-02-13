@@ -1,0 +1,19 @@
+<div class="block" id="block-tables">
+  <div class="secondary-navigation">
+    <ul>
+	  	<% HelpType.all.each do |h|%>
+		    <li> <%= link_to( @county.name + h.name, county_path(@county,:help_type => h.id ))%> </li>
+      <% end %>
+      <li> <%= link_to("刊登資訊 / 發出求救", new_help_path ) %> </li>
+    </ul>
+
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title"><%= @county.name %> <%= " - " + HelpType.find(params[:help_type].to_i).name unless params[:help_type].blank? %> </h2>
+    <div class="inner">
+		<%= render :partial => 'helps/index' %>
+    </div>
+  </div>
+</div>
+

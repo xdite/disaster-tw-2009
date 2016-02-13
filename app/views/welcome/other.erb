@@ -1,0 +1,17 @@
+<div class="block" id="block-text">
+  <div class="secondary-navigation">
+
+    <div class="clear"></div>
+  </div>
+  <div class="content">
+    <h2 class="title">十分緊急災情請直接打 119 </h2>
+	
+    <div class="inner">
+		<h3><%= link_to("看更多... >> ", helps_path) %></h3>
+	  	<% Post.recent.each do |p| %>
+		  <p>  [<%= p.help_type.name%>] <%= link_to(p.county.name,help_path(p)) %> : <%= simple_format(auto_link(h(p.content))) %> </p> <hr/>
+		<% end %>	
+		<h3><%= link_to("看更多... >> ", helps_path) %></h3>
+    </div>
+  </div>
+</div>
